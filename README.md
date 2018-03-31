@@ -1,0 +1,2 @@
+# bidcommerce
+bidding ecommerce project
