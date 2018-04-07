@@ -1,0 +1,72 @@
+body{
+	font-size:20px;
+	background-color:#fffaf0;
+}
+
+.jumbotron-fluid{
+	background-color:#2d4159;
+	padding-bottom:5px;
+}
+.glyphicon.glyphicon-user,.glyphicon.glyphicon-log-out,.glyphicon.glyphicon-bell{
+	font-size:25px;
+	color:green;
+	padding-top:10px;
+}
+.glyphicon.glyphicon-align-justify{
+	color:white;
+}
+.glyphicon.glyphicon-stats{
+	color:green;
+	font-size:20px;
+}
+.glyphicon.glyphicon-heart-empty,.glyphicon.glyphicon-comment,.glyphicon.glyphicon-heart{
+	font-size:30px;
+}
+.glyphicon.glyphicon-comment{
+	color:green;
+}
+nav{
+	margin-bottom:10px;
+	background-color:#2d4159;
+}
+#cols{
+	padding-right:2px;
+	padding-left:2px;
+
+}
+#colsm{
+	margin-bottom:15px;
+}
+#footer{
+	background-color:#4b0082;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+#space{
+	position:relative;
+	margin-right:10px;
+	margin-left:10px;
+}
+#pos{
+	position:relative;
+}
+#posbadge{
+	font-size:10px;
+	position:absolute;
+	left:-15px;
+}
+.glyphicon.glyphicon-heart{
+	color:#2d4159;
+}
+#notify,#logout{
+	position:relative;
+	margin-right:10px;
+	margin-left:10px;
+}
+
+.label-control{
+	color:#ffffe0;
+}
+#firstname,#secondname,#emailS,#phonenumber,#gender,#PwordS,#Cpword{
+	color:#fff0f5;
+}
