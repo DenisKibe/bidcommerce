@@ -32,21 +32,14 @@ $(document).ready(function(){
 		var PassWord=$('#PwordL').val();
 		$.ajax({
 			type:"POST",
-			url:"processuser.php",
+			url:"http://api.pennyinc.co.ke/OAuth2/GetToken",
 			data:{
-				"PhoneNumber":Pnumber,
-				"PassWord":PassWord,
+				"username":Pnumber,
+				"password":PassWord,
 					},
 			success:function(response){
 				console.log(response)
-				if(response=="login successful"){
-					alert("logined in successfully");
-					window.location="bidcommerce.php";
-				}
-				else if(response=="Failed"){
-					alert("Please check your values or sign up");
-					return false;
-				}
+				alert(response.body);
 			},
 			error:function(){
 				alert("An error occured please login later");
@@ -56,7 +49,7 @@ $(document).ready(function(){
 
 
 //like buttons and the badge
-
+ 
 	$('#like1p').click(function(){
 		var daro=$('#like1p').hasClass("glyphicon glyphicon-heart-empty");
 		if(daro==1){
