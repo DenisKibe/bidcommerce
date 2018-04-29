@@ -34,6 +34,7 @@
 							<li class="dropdown-header">Login/SignUp</li>
 
 							<li class="dropdown-item" data-toggle="modal" data-target="#modallogin">Login</li>
+							<li class="dropdown-item" data-toggle="modal" data-target="#modalsignup">Login</li>
 						</ul>
 					</div>
 				</div>
@@ -357,6 +358,41 @@
 				<a href="#"> 
 					<button class="btn float-right" type="button"><span class="glyphicon glyphicon-arrow-up"style="font-size:20px;color:black;"></span></button>
 				</a>
+			</div>
+		</div>
+	</div>
+	
+	<!--for the signup modal-->
+	<div class="modal fade" id="modalsignup">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!--modal header-->
+				<div class="modal-header" style="background-color:#8b0000;">
+					<h4 class="modal-title" style="color:#7cfc00;">SIGNUP</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!--modal body-->
+				<div class="modal-body" style="background-color:#2f4f4f;">
+					<form role="form" method="post">
+						<label for="Email" class="label-control">Email</label>
+						<input type="email" class="form-control border-top-0 border-left-0 border-right-0 bg-transparent" placeholder="name@domain.com" id="EmailS" name="EmailS" required autocomplete="off" style="color:#f5f5f5;">
+						<label for="FirstName" class="label-control">FirstName</label>
+						<input type="text" class="form-control border-top-0 border-left-0 border-right-0 bg-transparent" placeholder="FirstName" id="firstname" name="firstname" required autocomplete="off" style="color:#f5f5f5;">
+						<label for="LastName" class="label-control">LastName</label>
+						<input type="text" class="form-control border-top-0 border-left-0 border-right-0 bg-transparent" placeholder="LastName" id="lastname" name="lastname" required autocomplete="off" style="color:#f5f5f5;">
+
+						<label for="Password" class="label-control">Password</label>
+						<input type="password" class="form-control border-top-0 border-left-0 border-right-0 bg-transparent" placeholder="password" id="PwordS" name="PwordS" required autocomplete="off" style="color:#f5f5f5;">
+						<label for="ConfirmPasssword" class="label-control">Confirm Password</label>
+						<input type="password" class="form-control border-top-0 border-left-0 border-right-0 bg-transparent" placeholder="Confirm Password" id="Cpword" name="Cpword" required autocomplete="off" style="color:#f5f5f5;">
+
+
+				</div>
+				<!--modal footer-->
+				<div class="modal-footer" style="background-color:#2f4f4f;">
+					<button type="submit" class="btn btn-primary" id ="SubmitS"name="SubmitS" >Submit</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
