@@ -76,13 +76,13 @@ var Response;
     var Response;
       var password;
         var confirmPassword;
-      $('#RegU').click(function(event){
+      $('#SubmitS').click(function(event){
         event.preventDefault();
-        password=$('#Pword').val();
+        password=$('#PwordS').val();
         confirmPassword=$('#Cpword').val();
          if(password!=confirmPassword){
             alert('password does not much');
-             $('#Cpword').focus();
+             $('#CpwordS').focus();
             return false;
            
         }
@@ -106,7 +106,7 @@ var Response;
          },   
       complete:function(){
         
-        var email=$('#Email').val();
+        var email=$('#EmailS').val();
         var fName=$('#firstname').val();
         var lName=$('#lastname').val();
       
