@@ -9,16 +9,6 @@ $("#autocomplete").autocomplete({
 });
 
 
-//scroll property
-$(window).scroll(function(){
-	$(".slideanim").each(function(){
-		var pos=$(this).offset().top;
-		var winTop=$(window).scrollTop();
-		if(pos<winTop+300){
-			$(this).addClass("slide");
-		}
-	});
-});
 //hiding some functions
 
 
@@ -27,24 +17,60 @@ $(window).scroll(function(){
 
 //for the login button
 $(document).ready(function(){
-	$('#SubmitL').click(function(event){
-		var Pnumber=$('#Num').val();
-		var PassWord=$('#PwordL').val();
-		$.ajax({
-			type:"POST",
-			url:"http://api.pennyinc.co.ke/OAuth2/GetToken",
-			data:{
-				"username":Pnumber,
-				"password":PassWord,
-					},
-			success:function(response){
-				console.log(response)
-				alert(response.body);
-			},
-			error:function(){
-				alert("An error occured please login later");
-			}
-		});	
+var Response;
+  $('#getval').click(function(event){
+  event.preventDefault();
+      var username=$('#username').val();
+      var password=$('#password').val();
+    
+      if(password.length<6 && password.length>15){
+          alert("password must be greater than 6 characters and not more than 15 characters!");
+          return false;
+          
+      }
+      $.ajaxSetup({
+          headers:{
+              'Content-Type':'application/json'
+          }
+      });
+      
+      $.ajax({
+      url:"http://api.pennyinc.co.ke/oAuth2/GetToken",
+      
+      method:'POST',
+      dataType:'json',
+      data:JSON.stringify({'username':username,'password':password}),
+      success:function(ResponseBody){
+          
+          console.log(JSON.stringify(ResponseBody));
+          
+      Response =JSON.parse(JSON.stringify(ResponseBody));
+        if(Response.access_token!=""){
+       var exTime= document.cookie="Login="+Response.access_token +";expires="+exTime+";";
+            document.cookie="UserType="+Response.token_type+";expires="+exTime+";";
+        
+           alert("Login successful!");
+           if(typeof(storage)!=="undefined"){
+            $.session.set('Login',Response.access_token);
+            $.session.set('UserType',Response.token_type);
+            
+            }else{
+                alert('No web storage available!');
+            }
+            
+            
+        }
+        else{
+            alert("Failed! Your Email or password is invalid");
+        }
+        
+        }, 
+      error:function(error){
+          console.log(JSON.stringify(error));
+          alert('failed');
+          }
+      });   
+  });
 	});
 
 
