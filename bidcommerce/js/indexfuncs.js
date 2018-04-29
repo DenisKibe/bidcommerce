@@ -70,7 +70,77 @@ var Response;
           alert('failed');
           }
       });   
-  });
+ 
+	
+	//for the signup button
+    var Response;
+      var password;
+        var confirmPassword;
+      $('#RegU').click(function(event){
+        event.preventDefault();
+        password=$('#Pword').val();
+        confirmPassword=$('#Cpword').val();
+         if(password!=confirmPassword){
+            alert('password does not much');
+             $('#Cpword').focus();
+            return false;
+           
+        }
+        
+      $.ajax({
+      url:"http://api.pennyinc.co.ke/oAuth2/GetToken",
+      
+      method:'POST',
+      dataType:'json',
+      headers:{
+          'Content-Type':'application/json'
+      },
+      data:JSON.stringify({'username':'optimusprimates@pennyinc.co.ke','password':'#Primates2018'}),
+      success:function(ResponseBody){ 
+      
+      Response =JSON.parse(JSON.stringify(ResponseBody));
+      console.log(JSON.stringify(ResponseBody));
+        }, 
+      error:function(error){
+          console.log(JSON.stringify(error));
+         },   
+      complete:function(){
+        
+        var email=$('#Email').val();
+        var fName=$('#firstname').val();
+        var lName=$('#lastname').val();
+      
+        
+       
+        $.ajaxSetup({
+          headers:{
+              'Content-Type':'application/json',
+              'Authorization':Response.token_type +' '+ Response.access_token
+          }
+      });
+        
+              $.ajax({
+      url:"http://api.pennyinc.co.ke/api/Account/RegisterUser",
+      
+      method:'POST',
+      dataType:'json',
+      data:JSON.stringify({'email':email,'fName':fName,'lName':lName,'password':password,'confirmPassword':confirmPassword}),
+      success:function(ResponseBody){
+      console.log(JSON.stringify(ResponseBody));
+      
+      alert(JSON.stringify(ResponseBody));
+      },
+      error:function(error){
+          console.log(JSON.stringify(error));
+          alert(JSON.stringify(error));
+      }
+        
+    });
+    }
+    });
+        
+    });
+});
 	});
 
 
